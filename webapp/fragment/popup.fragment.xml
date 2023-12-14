@@ -12,9 +12,9 @@
 </endButton> -->
 
 <buttons>        
-            <Button text="Template" press="onTempDownload" icon="sap-icon://download-from-cloud" type="Emphasized"/>
-            <Button text="Upload" press="onCloseDialog" icon="sap-icon://upload-to-cloud" type="Emphasized"/>
-            <Button press="onCloseDialog" text="Cancel" icon="sap-icon://cancel"/>
+            <Button id="_IDGenButton1" text="Template" press="onTempDownload" icon="sap-icon://download-from-cloud" type="Emphasized"/>
+            <Button id="_IDGenButton2" text="Upload" press="onCloseDialog" icon="sap-icon://upload-to-cloud" type="Emphasized"/>
+            <Button id="_IDGenButton3" press="onCloseDialog" text="Cancel" icon="sap-icon://cancel"/>
         </buttons>
 
 

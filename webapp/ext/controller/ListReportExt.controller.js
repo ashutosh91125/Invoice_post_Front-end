@@ -15,72 +15,7 @@ sap.ui.define([
         // onTempDownload: function(oEvent) {
         //     MessageToast.show("Temp Download handler invoked.");
         // },
-        onTempDownload: function () {
-            // Define the properties for the template
-            // var dummyData = [
-            //     { ID: "1", Name: "John Doe", Age: 30, Country: "USA" },
-            //     { ID: "2", Name: "Jane Smith", Age: 25, Country: "Canada" },
-            //     // Add more dummy data as needed
-            // ];
-            // var columnLabels = [
-            //     { ID: "", Name: "", Age: "", Country: "" } // Empty data
-            // ];
-            // // Create a JSON model with the dummy data
-            // var oModel = new JSONModel(columnLabels);
-
-            // var oExport = new Export({
-            //     exportType: new ExportTypeCSV({
-            //         fileExtension: "xls",
-            //         separatorChar: "\t"
-            //     }),
-            //     models: oModel,
-            //     rows: {
-            //         path: "/"
-            //     },
-            //     columns: [
-            //         { name: "ID", template: { content: "{ID}" } },
-            //         { name: "Name", template: { content: "{Name}" } },
-            //         { name: "Age", template: { content: "{Age}" } },
-            //         { name: "Country", template: { content: "{Country}" } },
-            //         // Add more columns as needed
-            //     ]
-            // });
-
-            // oExport.saveFile().catch(function (oError) {
-            //     // Handle error
-            //     console.error("Error exporting template:", oError);
-            // }).then(function () {
-            //     oExport.destroy();
-            // });
-
-            var workbook = XLSX.utils.book_new();
-
-            // Define data and columns for Sheet1
-            var sheet1Data = [
-                { "Invoicereferencenumber": "", "Fiscalyear": "", "Companycode": "", "Documentdate(YYYYMMDD)": "", "Postingdate(YYYYMMDD)": "", "Supplierinvoiceidbyinvcgparty	": "", "Invoicingparty": "", "Documentcurrency": "", "Invoicegrossamount": "", "Duecalculationbasedate(YYYYMMDD)": "" } // Empty data
-            ];
-
-            // Add sheet1 to the workbook
-            XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(sheet1Data), 'Header Data');
-
-            // Define data and columns for Sheet2
-            var sheet2Data = [
-                { "Invoicereferencenumber": "", "Fiscalyear": "", "Supplierinvoiceitem": "", "Purchaseorder": "", "Purchaseorderitem": "", "Supplierinvoiceitemamount": "", "Documentcurrency": "", "Taxcode": "" } // Empty data
-            ];
-
-            // Add sheet2 to the workbook
-            XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(sheet2Data), 'Item with Purchase Order Refere');
-            // Define data and columns for Sheet3
-            var sheet3Data = [
-                { "Invoicereferencenumber": "", "Fiscalyear": "", "Supplierinvoiceitem": "", "Ordinalnumber": "", "Documentcurrency": "", "Quantity": "", "Purchaseorderquantityunit": "", "Supplierinvoiceaccountassignmentamount": "", "Taxcode": "", "Accountassignment number": "", "Costcenter": "", "Glaccount": "" } // Empty data
-            ];
-
-            // Add sheet2 to the workbook
-            XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(sheet3Data), 'Account Assignment Data');
-            // Save the workbook
-            XLSX.writeFile(workbook, 'template_tabs.xlsx');
-            this.onCloseDialog();
-        },
+        excelSheetsData: [],
         excelSheetsData: [],
         onInit() {
 
